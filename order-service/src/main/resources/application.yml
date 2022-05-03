@@ -1,0 +1,32 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://192.168.108.157:3306/cloud_order?characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowMultiQueries=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+  application:
+    name: order-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+
+
+# feign的日志级别 NONE, BASIC,HEADERS, FULL;
+# 对应的springboot的默认日志级别要开启为debug模式，因为feign的日志默认是以debug输出的
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: FULL
+
+
+logging:
+  level:
+    com.wxm: debug

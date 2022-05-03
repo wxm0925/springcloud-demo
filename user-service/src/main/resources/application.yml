@@ -1,0 +1,21 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://192.168.108.157:3306/cloud_user?characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowMultiQueries=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+  application:
+    name: user-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+
+
+logging:
+  level:
+    com.wxm.userservice: debug
